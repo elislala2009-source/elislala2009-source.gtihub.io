@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Gjuha programuese Python</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVIGIMI */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav h1{
+    color:#ffd43b;
+    font-size:28px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffd43b;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    flex-direction:column;
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    padding:20px;
+}
+
+.hero h2{
+    font-size:70px;
+    margin-bottom:20px;
+    animation:slideDown 1s ease;
+}
+
+.hero p{
+    max-width:800px;
+    font-size:20px;
+    margin-bottom:30px;
+    line-height:1.8;
+    animation:fadeIn 2s ease;
+}
+
+.hero button{
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ffd43b;
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.08);
+    background:white;
+}
+
+/* SEARCH */
+
+.search-section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.search-section h2{
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+.search-box{
+    width:60%;
+    max-width:700px;
+    padding:18px;
+    border-radius:50px;
+    border:none;
+    outline:none;
+    font-size:18px;
+}
+
+/* SEKSIONET */
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:50px;
+    margin-bottom:40px;
+    color:#ffd43b;
+    text-align:center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+    color:#ffd43b;
+}
+
+.card-content p{
+    line-height:1.7;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    max-width:1000px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    background:#ffd43b;
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-3px;
+}
+
+.container{
+    padding:10px 40px;
+    position:relative;
+    width:50%;
+}
+
+.container.left{
+    left:0;
+}
+
+.container.right{
+    left:50%;
+}
+
+.content{
+    padding:20px;
+    background:#1e293b;
+    border-radius:15px;
+}
+
+/* STATISTIKAT */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:40px;
+}
+
+.stat{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    width:250px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:50px;
+    color:#ffd43b;
+}
+
+/* KODI */
+
+.code-section{
+    background:#020617;
+}
+
+.code-box{
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    overflow:auto;
+    color:#00ff88;
+    line-height:1.8;
+}
+
+/* GALERIA */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    background:black;
+    text-align:center;
+    padding:40px;
+    margin-top:50px;
+}
+
+/* ANIMACIONE */
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero h2{
+        font-size:45px;
+    }
+
+    nav{
+        padding:20px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .timeline::after{
+        left:31px;
+    }
+
+    .container{
+        width:100%;
+        padding-left:70px;
+        padding-right:25px;
+    }
+
+    .container.right{
+        left:0%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <h1>Python</h1>
+
+    <ul>
+        <li><a href="#about">Rreth</a></li>
+        <li><a href="#features">Karakteristikat</a></li>
+        <li><a href="#history">Historia</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#code">Kodi</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <h2>Gjuha programuese Python</h2>
+
+    <p>
+        Python është një nga gjuhët programuese më të fuqishme,
+        më të thjeshta për fillestarët dhe më të përdorurat në botë.
+        Ajo përdoret për zhvillim websitesh, inteligjencë artificiale,
+        siguri kibernetike, automatizim, machine learning dhe shumë më tepër.
+    </p>
+
+    <button onclick="scrollToSection()">Eksploro Python</button>
+
+</div>
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+    <h2>Kërko informacion</h2>
+
+    <input type="text"
+    class="search-box"
+    id="searchInput"
+    placeholder="Kërko diçka rreth Python...">
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">Rreth Python</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>I thjeshtë për t’u mësuar</h3>
+
+                <p>
+                    Python ka një sintaksë të pastër që i ndihmon
+                    fillestarët të kuptojnë konceptet e programimit
+                    shpejt dhe lehtë.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Inteligjenca Artificiale</h3>
+
+                <p>
+                    Python është gjuha kryesore për inteligjencën artificiale
+                    dhe machine learning falë bibliotekave si TensorFlow,
+                    PyTorch dhe Scikit-learn.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Zhvillimi i Web-it</h3>
+
+                <p>
+                    Framework-et si Django dhe Flask u lejojnë zhvilluesve
+                    të krijojnë aplikacione moderne dhe të shpejta.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section id="features">
+
+    <h2 class="section-title">Karakteristikat Kryesore</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Sintaksë e thjeshtë</h3>
+                <p>
+                    Kodi i Python është i ngjashëm me gjuhën angleze,
+                    duke e bërë të lehtë për t’u lexuar.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Komunitet i madh</h3>
+                <p>
+                    Miliona zhvillues kontribuojnë me tutoriale,
+                    biblioteka dhe projekte open-source.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Cross Platform</h3>
+                <p>
+                    Python funksionon në Windows, macOS,
+                    Linux dhe shumë sisteme të tjera.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Automatizim</h3>
+                <p>
+                    Python mund të automatizojë detyra
+                    të përsëritura dhe të rrisë efikasitetin.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>Website për Python</h2>
+
+    <p>
+        Krijuar me HTML, CSS dhe JavaScript
+    </p>
+
+    <div style="margin-top:30px; line-height:2; max-width:400px; margin-left:auto; margin-right:auto; text-align:left;">
+
+        <h3 style="color:#ffd43b; text-align:center;">
+            Informacion Kontakti
+        </h3>
+
+        <input type="text" placeholder="Emër"
+            style="width:100%; padding:10px; margin:8px 0; border-radius:10px; border:none; outline:none;">
+
+        <input type="text" placeholder="Mbiemër"
+            style="width:100%; padding:10px; margin:8px 0; border-radius:10px; border:none; outline:none;">
+
+        <input type="email" placeholder="Email"
+            style="width:100%; padding:10px; margin:8px 0; border-radius:10px; border:none; outline:none;">
+
+        <input type="tel" placeholder="Numër telefoni"
+            style="width:100%; padding:10px; margin:8px 0; border-radius:10px; border:none; outline:none;">
+
+        <button
+            style="width:100%; padding:12px; margin-top:10px; border:none; border-radius:10px; background:#ffd43b; font-weight:bold; cursor:pointer;">
+            Dërgo
+        </button>
+<h1> Punoi : Elis Lala,Besart Keta,Aleksandhros Feimi,Jorilda Sheshi,Disjana Dollaku,Livia Duka,Sindi Musabelli,Eljana Lushaku
+    </div>
+
+</footer>
+<script>
+
+function scrollToSection(){
+    document.getElementById("about")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function(){
+
+    let filter =
+    searchInput.value.toLowerCase();
+
+    let cards =
+    document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        let text =
+        card.innerText.toLowerCase();
+
+        if(text.includes(filter)){
+            card.style.display = "";
+        }
+        else{
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
